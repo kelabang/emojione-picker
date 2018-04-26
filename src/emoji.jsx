@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import pick from "lodash/pick";
+// import pick from "lodash/pick";
 import emojione from "emojione";
 
 export default class Emoji extends Component {
@@ -30,20 +30,30 @@ export default class Emoji extends Component {
   };
 
   _handleClick = ev => {
+    const {
+      shortname,
+      aliases,
+      aliases_ascii,
+      category,
+      name,
+      shortcode,
+      unicode,
+      unicode_alternates,
+      keywords
+    } = this.props
     this.props.onSelect(
       ev,
-      pick(
-        this.props,
-        "shortname",
-        "aliases",
-        "aliases_ascii",
-        "category",
-        "name",
-        "shortcode",
-        "unicode",
-        "unicode_alternates",
-        "keywords"
-      )
+      {
+        shortname,
+        aliases,
+        aliases_ascii,
+        category,
+        name,
+        shortcode,
+        unicode,
+        unicode_alternates,
+        keywords
+      }
     );
   };
 
